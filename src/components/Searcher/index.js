@@ -1,8 +1,8 @@
-import React from 'react';
-import { Grid, Search } from 'semantic-ui-react';
-import './styles.css';
+import React from 'react'
+import { Grid, Search } from 'semantic-ui-react'
+import './styles.css'
 
-export default function SearchBar() {
+export default function SearchBar () {
   return (
     <div className='Searcher wrapper'>
       <Grid>
@@ -21,5 +21,5 @@ export default function SearchBar() {
         </Grid.Column>
       </Grid>
     </div>
-  );
+  )
 }
