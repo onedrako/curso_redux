@@ -7,7 +7,7 @@ export const getPokemons = (limit = 151) =>
     .catch((error) => console.log(error))
 
 export const getPokemonsWithDetails = () => {
-  getPokemons()
+  return getPokemons()
     .then((res) => {
       const pokemonList = res.results
       return Promise.all(
