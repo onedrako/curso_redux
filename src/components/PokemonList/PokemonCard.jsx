@@ -8,9 +8,9 @@ const PokemonCard = ({ pokemon }) => {
     <Grid.Column mobile={16} tablet={8} computer={5}>
       <div className='PokemonCard'>
       <Icon name='favorite' color={FAV_COLOR} />
-        <Image centered src="https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/styles/hc_1440x810/public/media/image/2021/06/ditto-pokemon-go-2363405.jpg?itok=15msD77r" alt="Pokemon Front" />
+        <Image centered src={pokemon.sprites.front_default} alt="Pokemon Front" />
         <p className='Pokemon-title'>{pokemon.name}</p>
-        <Label color={MAIN_COLOR}>Normal</Label>
+        {pokemon.types.map(type => (<Label key={`${pokemon.id}-${pokemon.type}`} color={MAIN_COLOR}>{type.type.name}</Label>))}
       </div>
     </Grid.Column>
   )
