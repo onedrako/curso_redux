@@ -1,7 +1,7 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Message } from 'semantic-ui-react'
-import { clearError } from '../../actions'
+import { clearError } from '../../redux/actions'
 import Menu from '../Menu'
 import './styles.css'
 

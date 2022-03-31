@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import Searcher from '../../components/Searcher'
 import PokemonList from '../../components/PokemonList'
 import { getPokemons } from '../../api/getPokemons'
-import { setPokemon, setError } from '../../actions'
+import { setPokemon, setError } from '../../redux/actions'
 import './styles.css'
 import axios from 'axios'
 
