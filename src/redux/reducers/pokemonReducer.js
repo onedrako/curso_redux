@@ -1,17 +1,13 @@
-import { SET_FAVORITE, SET_POKEMON, TOOGLE_LOADER } from '../actions/type'
+import { SET_FAVORITE, SET_POKEMON } from '../actions/type'
 
 const initialState = {
-  list: [],
-  loading: false
+  list: []
 }
 
 const pokemonReducer = (state = initialState, action) => {
   switch (action.type) {
     case SET_POKEMON:
       return { ...state, list: action.payload }
-
-    case TOOGLE_LOADER:
-      return { ...state, loading: !state.loading }
 
     case SET_FAVORITE:
       const newPokemonList = [...state.list]
@@ -31,7 +27,7 @@ const pokemonReducer = (state = initialState, action) => {
       return { ...state, list: newPokemonList }
 
     default:
-      return { state }
+      return state
   }
 }
 

@@ -13,7 +13,6 @@ const PokemonCard = ({ pokemon }) => {
   }
 
   const color = pokemon.favorite ? FAV_COLOR : DEFAULT_COLOR
-
   return (
     <Grid.Column mobile={16} tablet={8} computer={5}>
       <div className='PokemonCard'>
@@ -22,7 +21,7 @@ const PokemonCard = ({ pokemon }) => {
       </button>
         <Image centered src={pokemon.sprites.front_default} alt="Pokemon Front" />
         <p className='Pokemon-title'>{pokemon.name}</p>
-        {pokemon.types.map(type => (<Label key={`${pokemon.id}-${pokemon.type}`} color={MAIN_COLOR}>{type.type.name}</Label>))}
+        {pokemon.types.map(type => (<Label key={`${pokemon.id}-${type.slot}`} color={MAIN_COLOR}>{type.type.name}</Label>))}
       </div>
     </Grid.Column>
   )
