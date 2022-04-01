@@ -1,5 +1,13 @@
 import axios from 'axios'
-import { SET_POKEMON, SET_ERROR, CLEAR_ERROR } from './type'
+
+import {
+  SET_POKEMON,
+  SET_ERROR,
+  CLEAR_ERROR,
+  TOOGLE_LOADER,
+  SET_FAVORITE
+} from './type'
+
 import { getPokemons } from '../../api/getPokemons'
 
 export const setPokemon = (payload) => ({
@@ -12,12 +20,22 @@ export const setError = (payload) => ({
   payload
 })
 
+export const setFavorite = (payload) => ({
+  type: SET_FAVORITE,
+  payload
+})
+
 export const clearError = (payload) => ({
   type: CLEAR_ERROR,
   payload
 })
 
+export const toggleLoader = () => ({
+  type: TOOGLE_LOADER
+})
+
 export const getPokemonWithDetails = () => dispatch => {
+  dispatch(toggleLoader())
   getPokemons()
     .then((res) => {
       const pokemonList = res.results
@@ -30,6 +48,7 @@ export const getPokemonWithDetails = () => dispatch => {
         (response) => response.data
       )
       dispatch(setPokemon(pokemonsWithDetails))
+      dispatch(toggleLoader())
     })
     .catch((error) => {
       dispatch(setError({ message: 'Ocurrió un error', error }))
