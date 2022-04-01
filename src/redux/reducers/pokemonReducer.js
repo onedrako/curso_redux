@@ -13,24 +13,17 @@ const pokemonReducer = (state = initialState, action) => {
       return state.set('list', fromJS(action.payload))
 
     case TOOGLE_LOADER:
-      return state.set('loading', !state.get('loading')) // con immutable
+      return state.set('loading', !state.get('loading'))
 
     case SET_FAVORITE:
-      const newPokemonList = [...state.list]
-      const currentPokemonIndex = newPokemonList.findIndex(
-        (elem) => elem.id === action.payload.pokemonId
+    {
+      const currentPokemonIndex = state.get('list').findIndex(
+        (elem) => elem.get('id') === action.payload.pokemonId
       )
 
-      if (newPokemonList[currentPokemonIndex].favorite === true) {
-        newPokemonList[currentPokemonIndex].favorite = false
-
-        return { ...state, list: newPokemonList }
-      }
-
-      if (currentPokemonIndex >= 0) {
-        newPokemonList[currentPokemonIndex].favorite = true
-      }
-      return { ...state, list: newPokemonList }
+      const isFavorite = state.getIn(['list', currentPokemonIndex, 'favorite'])
+      return state.setIn(['list', currentPokemonIndex, 'favorite'], !isFavorite)
+    }
 
     default:
       return state
