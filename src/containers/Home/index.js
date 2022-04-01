@@ -10,8 +10,8 @@ import './styles.css'
 
 function Home () {
   const dispatch = useDispatch()
+  const pokemons = useSelector((state) => state.get('list')).toJS()
   const loading = useSelector(state => state.loading)
-  const list = useSelector(state => state.list)
 
   useEffect(() => {
     dispatch(getPokemonWithDetails())
@@ -21,7 +21,7 @@ function Home () {
     <div className='Home'>
       <Searcher />
       {loading && <Loader/> }
-      <PokemonList pokemons={list}/>
+      <PokemonList pokemons={pokemons}/>
     </div>
   )
 }
