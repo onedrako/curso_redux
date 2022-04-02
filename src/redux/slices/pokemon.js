@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import { getPokemons, getPokemonWithDetails } from '../../api/getPokemons'
+import { toggleLoading } from './ui'
 
 const initialState = {
   list: []
@@ -9,13 +10,13 @@ export const fetchPokemons = createAsyncThunk(
   'pokemon/fetchPokemons',
   async (_, { dispatch }) => {
     try {
-      // dispatch(toggleLoading())
+      dispatch(toggleLoading())
       const response = await getPokemons()
       const pokemonsWithDetails = await getPokemonWithDetails(
         response.results
       )
       dispatch(setPokemon(pokemonsWithDetails))
-      // dispatch(toggleLoading())
+      dispatch(toggleLoading())
     } catch (err) {
       console.log(err)
       // dispatch(setError({ error: err, message: 'Error fetching pokemons' }))

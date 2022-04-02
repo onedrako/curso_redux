@@ -10,7 +10,7 @@ import './styles.css'
 
 function Home () {
   const dispatch = useDispatch()
-  const loading = useSelector(state => state.loading)
+  const loading = useSelector(state => state.ui.loading)
   const list = useSelector(state => state.pokemon.list)
 
   useEffect(() => {
