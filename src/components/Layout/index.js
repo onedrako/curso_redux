@@ -1,8 +1,8 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Message } from 'semantic-ui-react'
-import { clearError } from '../../redux/actions'
 import Menu from '../Menu'
+import { clearError } from '../../redux/slices/ui'
 import './styles.css'
 
 const Layout = ({ children }) => {

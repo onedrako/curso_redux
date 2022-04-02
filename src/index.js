@@ -9,11 +9,11 @@ import { Provider } from 'react-redux'
 import './index.css'
 
 import rootReducer from './redux/reducers/rootReducer'
-import { logActions, reportError } from './redux/middlewares'
+import { logActions } from './redux/middlewares'
 
 const composeAlt = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 
-const composedEnhancers = composeAlt(applyMiddleware(thunk, logActions, reportError))
+const composedEnhancers = composeAlt(applyMiddleware(thunk, logActions))
 
 const store = createStore(rootReducer, composedEnhancers)
 

@@ -10,10 +10,16 @@ export const uiSlice = createSlice({
   reducers: {
     toggleLoading: (state) => {
       state.loading = !state.loading
+    },
+    setError: (state, action) => {
+      state.error = action.payload.message
+    },
+    clearError: (state) => {
+      state.error = ''
     }
   }
 })
 
-export const { toggleLoading } = uiSlice.actions
+export const { toggleLoading, setError, clearError } = uiSlice.actions
 
 export default uiSlice.reducer

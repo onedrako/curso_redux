@@ -1,5 +1,0 @@
-export const SET_POKEMON = 'SET_POKEMONS'
-export const SET_ERROR = 'SET_ERROR'
-export const SET_FAVORITE = 'SET_FAVORITE'
-export const CLEAR_ERROR = 'CLEAR_ERROR'
-export const TOOGLE_LOADER = 'TOOGLE_LOADER'

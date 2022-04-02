@@ -1,9 +1,9 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
 import { Grid, Icon, Image, Label } from 'semantic-ui-react'
+import { setFavorite } from '../../redux/slices/pokemon'
 import { MAIN_COLOR, FAV_COLOR, DEFAULT_COLOR } from '../../utils/constants'
 import './styles.css'
-import { setFavorite } from '../../redux/actions'
 
 const PokemonCard = ({ pokemon }) => {
   const dispatch = useDispatch()
