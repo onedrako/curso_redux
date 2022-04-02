@@ -22,7 +22,7 @@ const PokemonCard = ({ pokemon }) => {
       </button>
         <Image centered src={pokemon.sprites.front_default} alt="Pokemon Front" />
         <p className='Pokemon-title'>{pokemon.name}</p>
-        {pokemon.types.map(type => (<Label key={`${pokemon.id}-${pokemon.type}`} color={MAIN_COLOR}>{type.type.name}</Label>))}
+        {pokemon.types.map(type => (<Label key={`${pokemon.id}-${type.type.name}`} color={MAIN_COLOR}>{type.type.name}</Label>))}
       </div>
     </Grid.Column>
   )

@@ -4,17 +4,17 @@ import { useDispatch, useSelector } from 'react-redux'
 import Searcher from '../../components/Searcher'
 import PokemonList from '../../components/PokemonList'
 import Loader from '../../components/Loader'
-import { getPokemonWithDetails } from '../../redux/actions'
 
+import { fetchPokemons } from '../../redux/slices/pokemon'
 import './styles.css'
 
 function Home () {
   const dispatch = useDispatch()
   const loading = useSelector(state => state.loading)
-  const list = useSelector(state => state.list)
+  const list = useSelector(state => state.pokemon.list)
 
   useEffect(() => {
-    dispatch(getPokemonWithDetails())
+    dispatch(fetchPokemons())
   }, [])
 
   return (
