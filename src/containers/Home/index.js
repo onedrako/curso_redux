@@ -10,8 +10,8 @@ import './styles.css'
 
 function Home () {
   const dispatch = useDispatch()
-  const pokemons = useSelector((state) => state.get('list')).toJS()
-  const loading = useSelector((state) => state.get('loading'))
+  const pokemons = useSelector((state) => state.getIn(['pokemon', 'list'])).toJS()
+  const loading = useSelector((state) => state.get(['ui', 'loading']))
 
   useEffect(() => {
     dispatch(getPokemonWithDetails())
